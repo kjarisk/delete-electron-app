@@ -21,4 +21,6 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
 
   // You can expose other APTs you need here.
   // ...
+  // @ts-expect-error mixup
+  openDialog: (method, config) => ipcRenderer.invoke('dialog', method, config)
 })
